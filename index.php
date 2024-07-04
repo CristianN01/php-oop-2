@@ -40,21 +40,33 @@ $productArray = [$royal_canin, $tonno, $cat_daily, $mangime_pesci, $voliera, $ca
         </h1>
     </header>
     <main>
-        <h4>
-            I nostri prodotti:
-        </h4>
+        <div class="container">
+            <h4>
+                I nostri prodotti:
+            </h4>
+        </div>
         <section class="container-fluid ">
             <div class="article container d-flex flex-wrap ">
                 <?php foreach ($productArray as $product) { ?>
                     <div class="card">
                     <img src="<?php echo $product->getFoto(); ?>" alt="foto prodotto">    
-                    <h2><?php echo $product->getNome() ?></h2>
-                    <p>Prezzo: <?php echo $product->getPrezzo() ?></p>
-                    <p>Peso netto: <?php echo $product->getPeso() ?> </p>
-                    <p>Ingredienti: <?php echo $product->getIngredienti() ?> </p>
-
+                    <p class="px-2"><?php echo $product->getAnimale()->getSpecies() ?></p>
+                    <h2 class="px-2" ><?php echo $product->getNome() ?></h2>
+                    <p class="px-2" >Prezzo: <?php echo $product->getPrezzo() ?> €</p>
+                    <p class="px-2" >Classe: <?php echo get_class($product); ?> </p>
+                    <?php if (get_class($product) === "Cibo") { ?>
+                        <p class="px-2" > <?php echo $product->getPeso() ?></p>
+                        <p class="px-2" > <?php echo $product->getIngredienti() ?></p>
+                    <?php }?>
+                    <?php if (get_class($product) === "Accessorio") { ?>
+                        <p class="px-2" > <?php echo $product->getMateriale() ?></p>
+                        <p class="px-2" > <?php echo $product->getDimensioni() ?></p>
+                    <?php }?>
+                    <?php if (get_class($product) === "Giochi") { ?>
+                        <p class="px-2" > <?php echo $product->getCaratteristiche() ?></p>
+                        <p class="px-2" > <?php echo $product->getDimensioni() ?></p>
+                    <?php }?>
                     </div>
-                        
                 <?php } ?>
             </div>
         </section>
