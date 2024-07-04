@@ -30,6 +30,7 @@ $productArray = [$royal_canin, $tonno, $cat_daily, $mangime_pesci, $voliera, $ca
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OOP2</title>
 
+    <link rel="stylesheet" href="./style/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
@@ -39,8 +40,11 @@ $productArray = [$royal_canin, $tonno, $cat_daily, $mangime_pesci, $voliera, $ca
         </h1>
     </header>
     <main>
-        <section class="container">
-            <div class="article container">
+        <h4>
+            I nostri prodotti:
+        </h4>
+        <section class="container-fluid ">
+            <div class="article container d-flex flex-wrap ">
                 <?php foreach ($productArray as $product) { ?>
                     <div class="card">
                     <img src="<?php echo $product->getFoto(); ?>" alt="foto prodotto">    
